@@ -22,7 +22,7 @@ def leer_bmp(img_path: str) -> tuple:
         img_en_grises: bool
             Indica si la imagen es a color o en escala de grises
     """
-    pixeles_rgb = Image.open(img_path)
+    pixeles_rgb = Image.open(img_path).convert('L')
     pixeles_rgb = np.array(pixeles_rgb)
 
     alto = pixeles_rgb.shape[0]

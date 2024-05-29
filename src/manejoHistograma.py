@@ -186,3 +186,14 @@ def ecualizar_histograma_exp(pixeles_grises: np.array, pixeles_rgb: np.array, im
                 pixeles_ecualizados_rgb[i][j][2] = 0
 
     return pixeles_ecualizados_grises, pixeles_ecualizados_rgb
+
+
+def umbralizar_imagen(pixeles_grises, umbral):
+    pixeles_umbralizados_grises = np.zeros(
+        pixeles_grises.shape, dtype=np.uint8)
+
+    for i in range(pixeles_grises.shape[0]):
+        for j in range(pixeles_grises.shape[1]):
+            pixeles_umbralizados_grises[i][j] = 0 if pixeles_grises[i][j] < umbral else 255
+
+    return pixeles_umbralizados_grises
